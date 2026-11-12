@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+:root {
+  --milkore-primary: #1769e0;
+  --milkore-navy: #1e40af;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Devanagari", sans-serif;
+}
