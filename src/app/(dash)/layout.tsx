@@ -16,6 +16,7 @@ const NAV = [
   { href: '/categories', label: 'Categories' },
   { href: '/reports', label: 'Reports' },
   { href: '/support', label: 'Support' },
+  { href: '/notifications', label: 'Notifications' },
   { href: '/audit', label: 'Audit log' },
   { href: '/admins', label: 'Admins', superOnly: true },
 ];

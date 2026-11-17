@@ -214,3 +214,47 @@ export interface AuditEntry {
   ip: string | null;
   createdAt: string;
 }
+
+// ─────────────────────────────── notifications (ADR-022) ───────────────────────────────
+
+export type AudienceType = 'ALL' | 'ROLE' | 'USERS' | 'LOCATION' | 'VENDOR_STATUS';
+
+export interface Audience {
+  type: AudienceType;
+  role?: 'CUSTOMER' | 'VENDOR';
+  userIds?: string[];
+  city?: string;
+  pincode?: string;
+  approvalStatus?: VendorStatus;
+}
+
+/** Screen the app opens on tap. CHAT is automatic-only, so it isn't offered here. */
+export type CampaignTarget = 'HOME' | 'NOTIFICATIONS' | 'VENDOR_DASHBOARD' | 'VENDOR_PRODUCTS' | 'SUPPORT' | 'VENDOR_DETAILS';
+
+export interface AudiencePreview {
+  recipients: number;
+  reachable: number;
+  label: string;
+}
+
+export interface Campaign {
+  id: string;
+  titleEn: string;
+  bodyEn: string;
+  titleHi: string | null;
+  bodyHi: string | null;
+  audience: Audience;
+  audienceLabel: string;
+  target: CampaignTarget | 'CHAT';
+  targetParams: { vendorId?: string };
+  status: 'SENDING' | 'SENT' | 'FAILED';
+  recipientCount: number;
+  deliveredCount: number;
+  failedCount: number;
+  noDeviceCount: number;
+  errorMessage: string | null;
+  sentAt: string | null;
+  createdAt: string;
+  createdBy: { id: string; name: string; email: string } | null;
+  readCount?: number;
+}
