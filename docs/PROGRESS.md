@@ -18,3 +18,9 @@ Product docs and the API reference are in `../milkore_backend/docs/`. This file 
 
 - Uses the existing `/api/proxy/*` route (only `/api/v1/admin/*`); no proxy changes.
 - The API enforces SUPER_ADMIN for ALL / ROLE audiences; the page also hides those options for moderators.
+
+
+## 2026-11-18 - Secrets untracked
+
+- Removed committed secret `.env.local` from git tracking (kept on disk; already in .gitignore): `.env.local`. They remain in earlier commits, so rotate those keys.
+
